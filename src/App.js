@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Form from "./components/Form";
+import ContactList from "./components/ContactList";
 
 
 class App extends Component {
@@ -7,7 +9,12 @@ class App extends Component {
         name: ''
     }
 
-    render() { }
+    render() {
+        return <>
+            <Form onSubmit={value => console.log(value)} />
+            <ContactList />
+        </>
+    }
 }
 
 export default App;

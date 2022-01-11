@@ -1,1 +1,1 @@
-import {default } from "./Form";
+export { default } from "./Form";
