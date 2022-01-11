@@ -1,6 +1,10 @@
 
-export default function ContactList({ names }) {
+export default function ContactList({ names, id }) {
     return <>
-        <ul><li></li></ul>
+        <ul>
+            {names ? names.map(name => {
+                return <li key={id}>{ name}</li>
+            }) : ''}
+        </ul>
     </>
 }
