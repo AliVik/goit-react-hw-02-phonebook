@@ -10,12 +10,12 @@ class Form extends Component {
 
     onFormSubmit = (evt) => {
         evt.preventDefault();
-        const inputName = evt.currentTarget.elements.name.value;
-        const inputNumber = evt.currentTarget.elements.number.value;
+        const name = evt.currentTarget.elements.name.value;
+        const number = evt.currentTarget.elements.number.value;
         const form = evt.currentTarget;
         const id = nanoid();
 
-        this.props.onSubmit({ inputName, id, inputNumber });
+        this.props.onSubmit({ name, id, number });
         form.reset();
     }
 
