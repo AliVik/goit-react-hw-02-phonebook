@@ -6,21 +6,33 @@ import ContactList from "./components/ContactList";
 class App extends Component {
     state = {
         contacts: [],
-        name: '',
+        filter: '',
+
     }
-   
+
+
+
     handleFormDatas = (data) => {
-        
+        console.log(data)
+
         this.setState(prevState => {
-            return { name: [...prevState.name, data.inputName] }
+            // console.log(prevState)
+            // console.log(this.state.name)
+            // return {
+            //     name: [...prevState.name, data.inputName],
+            //     contacts: [...prevState.contacts, data.inputNumber]
+            // }
+
+            return {
+                contacts: [...prevState.contacts, data]
+            }
         })
-      
     }
-   
+
     render() {
         return <>
             <Form onSubmit={this.handleFormDatas} />
-            <ContactList names={this.state.name}/>
+            <ContactList contacts={this.state.contacts} />
         </>
     }
 }
