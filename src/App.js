@@ -34,10 +34,11 @@ class App extends Component {
     }
 
     render() {
+        const { filter, contacts } = this.state;
         return <>
             <Form onSubmit={this.handleFormDatas} />
-            <Filter value={this.state.filter} onChange={this.handleFilterDatas} />
-            <ContactList contacts={this.state.contacts}/>
+            <Filter value={filter} onChange={this.handleFilterDatas} />
+            <ContactList contacts={contacts}/>
         </>
     }
 }

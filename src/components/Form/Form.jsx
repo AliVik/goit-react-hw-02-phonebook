@@ -3,10 +3,6 @@ import { nanoid } from 'nanoid'
 
 
 class Form extends Component {
-    state = {
-        name: '',
-        number: '',
-    }
 
     onFormSubmit = (evt) => {
         evt.preventDefault();
