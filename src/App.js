@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import toast, {Toaster} from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
+import { Wrapper,PhonebookHeading,ContactsHeading } from "./components/Form/StyledForm";
 import Form from "./components/Form";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
@@ -56,14 +57,14 @@ class App extends Component {
         
         const filteredContacts = this.filterContactList();
        
-        return <div>
-            <h1>Phonebook</h1>
+        return <Wrapper>
+            <PhonebookHeading>Phonebook</PhonebookHeading>
             <Form onSubmit={this.handleFormDatas} />
-            <h2>Contacts</h2>
+            <ContactsHeading>Contacts</ContactsHeading>
             <Filter value={filter} onChange={this.handleFilterDatas} />
             <ContactList contacts={filteredContacts} onDeleteClick={this.onDeleteBtnClick} />
             <Toaster />
-        </div>
+        </Wrapper>
     }
 }
 

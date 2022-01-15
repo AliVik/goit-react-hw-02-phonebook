@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { LabelName,Label } from './StyledFilter';
 
 function Filter ({value,onChange}){
    
-        return <label>
-                    Find contacts by name
+        return <Label>
+                    <LabelName>Find contacts by name</LabelName> 
                     <input
                         type="text"
                         name="filter"
@@ -13,7 +14,7 @@ function Filter ({value,onChange}){
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                     />
-            </label>
+            </Label>
     
 }
 

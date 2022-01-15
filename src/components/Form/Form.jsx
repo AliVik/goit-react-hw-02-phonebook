@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { nanoid } from 'nanoid';
-
+import { FormTag,LabelNames,LabelWrapper,Button } from './StyledForm';
 
 
 class Form extends Component {
@@ -18,9 +18,10 @@ class Form extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onFormSubmit}>
-                <label>
-                    Name
+            <FormTag onSubmit={this.onFormSubmit}>
+                <LabelWrapper>
+                     <label>
+                    <LabelNames>Name</LabelNames>
                     <input
                         type="text"
                         name="name"
@@ -30,7 +31,7 @@ class Form extends Component {
                     />
                 </label>
                 <label>
-                    Number
+                    <LabelNames>Number</LabelNames>
                     <input
                         type="tel"
                         name="number"
@@ -39,8 +40,10 @@ class Form extends Component {
                         required
                     />
                 </label>
-                <button type="submit" name="button">Add contact</button>
-            </form>
+                </LabelWrapper>
+               
+                <Button type="submit" name="button">Add contact</Button>
+            </FormTag>
         )
     }
 
