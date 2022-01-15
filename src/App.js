@@ -16,15 +16,21 @@ class App extends Component {
 
     }
 
-
-
     handleFormDatas = (data) => {
-
+        const { contacts } = this.state;
+        const normalizedDataName = data.name.toLowerCase();
+        const existingContact = contacts.map(contact => {
+            return contact.name.toLowerCase().includes(normalizedDataName); 
+        })
+    
+        existingContact.includes(true)?alert(`${data.name} is already in contacts`):
         this.setState(prevState => {
             return {
                 contacts: [...prevState.contacts, data]
             }
         })
+        
+  
     }
 
     handleFilterDatas = (evt) => {
@@ -36,7 +42,14 @@ class App extends Component {
         const normalizedFilter = filter.toLowerCase();
         return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
     }
-
+    onDeleteBtnClick = (contactId) => {
+        this.setState(prevState => {
+            return {
+                contacts: prevState.contacts.filter(contact => {
+                    return contact.id !== contactId;
+            })}
+        })
+    }
     render() {
         const { filter} = this.state;
         
@@ -45,7 +58,7 @@ class App extends Component {
         return <>
             <Form onSubmit={this.handleFormDatas} />
             <Filter value={filter} onChange={this.handleFilterDatas} />
-            <ContactList contacts={filteredContacts} />
+            <ContactList contacts={filteredContacts} onDeleteClick={this.onDeleteBtnClick}/>
         </>
     }
 }
