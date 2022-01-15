@@ -28,14 +28,19 @@ class App extends Component {
     }
 
     handleFilterDatas = (evt) => {
-        
         this.setState({ filter: evt.currentTarget.value })
     }
 
-    render() {
+    filterContactList = () => {
         const { filter, contacts } = this.state;
-         const normalizedFilter = filter.toLowerCase();
-        const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+        const normalizedFilter = filter.toLowerCase();
+        return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+    }
+
+    render() {
+        const { filter} = this.state;
+        
+        const filteredContacts = this.filterContactList();
        
         return <>
             <Form onSubmit={this.handleFormDatas} />
