@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import toast, {Toaster} from 'react-hot-toast';
 import Form from "./components/Form";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
@@ -23,7 +24,7 @@ class App extends Component {
             return contact.name.toLowerCase().includes(normalizedDataName); 
         })
     
-        existingContact.includes(true)?alert(`${data.name} is already in contacts`):
+        existingContact.includes(true)?toast.error(`${data.name} is already in contacts`):
         this.setState(prevState => {
             return {
                 contacts: [...prevState.contacts, data]
@@ -58,7 +59,8 @@ class App extends Component {
         return <>
             <Form onSubmit={this.handleFormDatas} />
             <Filter value={filter} onChange={this.handleFilterDatas} />
-            <ContactList contacts={filteredContacts} onDeleteClick={this.onDeleteBtnClick}/>
+            <ContactList contacts={filteredContacts} onDeleteClick={this.onDeleteBtnClick} />
+            <Toaster />
         </>
     }
 }
